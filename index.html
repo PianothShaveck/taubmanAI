@@ -1,28 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 
 <head>
     <meta charset="UTF-8">
     <title>Taubman Approach AI Expert</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta name="description" content="Get expert advice on the Taubman Approach piano technique with our AI-powered chatbot. Learn how to play piano with greater ease and fluidity.">
+    <meta name="description"
+        content="Get expert advice on the Taubman Approach piano technique with our AI-powered chatbot. Learn how to play piano with greater ease and fluidity.">
     <meta name="keywords" content="Taubman Approach, piano technique, piano lessons, AI chatbot, music education">
     <meta name="author" content="Aldoroberto Pessolano">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pianothshaveck.github.io/taubmanAI">  
+    <meta property="og:url" content="https://pianothshaveck.github.io/taubmanAI">
     <meta property="og:title" content="Taubman Approach AI Expert">
-    <meta property="og:description" content="Get expert advice on the Taubman Approach piano technique with our AI-powered chatbot. Learn how to play piano with greater ease and fluidity.">
+    <meta property="og:description"
+        content="Get expert advice on the Taubman Approach piano technique with our AI-powered chatbot. Learn how to play piano with greater ease and fluidity.">
     <meta property="og:image" content="favicon.png">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="YOUR_WEBSITE_URL">
     <meta property="twitter:title" content="Taubman Approach AI Expert">
-    <meta property="twitter:description" content="Get expert advice on the Taubman Approach piano technique with our AI-powered chatbot. Learn how to play piano with greater ease and fluidity.">
+    <meta property="twitter:description"
+        content="Get expert advice on the Taubman Approach piano technique with our AI-powered chatbot. Learn how to play piano with greater ease and fluidity.">
     <meta property="twitter:image" content="favicon.png">
     <link href="./style.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
         body {
+            font-family: 'Poppins', sans-serif;
             background-color: #f0f4f8;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+        }
+
+        .chat-container {
+            height: calc(100vh - 260px);
+            min-height: 400px;
+        }
+
+        .messages-container {
+            height: calc(100% - 120px);
+            overflow-y: auto;
         }
 
         .ko-fi-button img {
@@ -32,41 +52,51 @@
     </style>
 </head>
 
-<body class="flex flex-col min-h-screen">
-    <div class="flex-grow container mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold text-center mb-8 text-blue-600">Taubman Approach AI Expert</h1>
-        <div id="chat-container" class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
-            <div id="messages" class="space-y-4"></div>
-            <div class="mt-6">
+<body class="flex flex-col min-h-full">
+    <header class="gradient-bg text-white py-6">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center">Taubman Approach AI Expert</h1>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div id="chat-container" class="chat-container max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+            <div id="messages" class="messages-container p-6 space-y-4"></div>
+            <div class="p-4 bg-gray-50 border-t border-gray-200">
                 <textarea id="user-input" rows="3"
-                    class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                     placeholder="Ask a question about the Taubman Approach..."></textarea>
                 <button id="send-button"
-                    class="mt-4 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300">Send</button>
+                    class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold">Send</button>
             </div>
         </div>
-    </div>
-    <div class="bg-gray-100 py-4">
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-auto">
         <div class="container mx-auto text-center">
-            <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'K3K642BQS');kofiwidget2.draw();</script>
-            <div class="mt-2">
-                <a href="tos.html" class="text-gray-600 hover:text-blue-500 mx-2">Terms of Service</a>
-                <a href="pp.html" class="text-gray-600 hover:text-blue-500 mx-2">Privacy Policy</a>
+            <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+            <script
+                type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'K3K642BQS'); kofiwidget2.draw();</script>
+            <div class="mt-4 space-x-4">
+                <a href="tos.html" class="text-gray-300 hover:text-white transition duration-300">Terms of Service</a>
+                <a href="pp.html" class="text-gray-300 hover:text-white transition duration-300">Privacy Policy</a>
             </div>
         </div>
-    </div>
+    </footer>
     <script>function markdown(r) { var t = /\\([\\\|`*_{}\[\]()#+\-~])/g, e = /\n *&gt; *([^]*?)(?=(\n|$){2})/g, u = /\n( *)(?:[*\-+]|((\d+)|([a-z])|[A-Z])[.)]) +([^]*?)(?=(\n|$){2})/g, c = /(^|[^A-Za-z\d\\])(([*_])|(~)|(\^)|(--)|(\+\+)|`)(\2?)([^<]*?)\2\8(?!\2)(?=\W|_|$)/g, n = /(`+)([^`].*?)\1/g, l = /^.*\n( *\|( *\:?-+\:?-+\:? *\|)* *\n|)/, o = /.*\n/g, g = /\||(.*?[^\\])\|/g; function a(n, t) { r = r.replace(n, t) } function i(n, t) { return "<" + n + ">" + t + "</" + n + ">" } function f(n) { return n.replace(c, function (n, t, r, e, u, c, l, o, g, a) { return t + i(e ? g ? "strong" : "em" : u ? g ? "s" : "sub" : c ? "sup" : l ? "small" : o ? "big" : "code", f(a)) }) } function p(n) { return n.replace(t, "$1") } var s = [], m = 0; return r = "\n" + r + "\n", a(/</g, "&lt;"), a(/>/g, "&gt;"), a(/\t|\r|\uf8ff/g, "  "), r = function r(n) { return n.replace(e, function (n, t) { return i("blockquote", r(f(t.replace(/^ *&gt; */gm, "")))) }) }(r), a(/^([*\-=_] *){3,}$/gm, "<hr/>"), r = function l(n) { return n.replace(u, function (n, t, r, e, u, c) { return c = i("li", f(c.split(RegExp("\n ?" + t + "(?:(?:\\d+|[a-zA-Z])[.)]|[*\\-+]) +", "g")).map(l).join("</li><li>"))), "\n" + (r ? '<ol start="' + (e ? r + '">' : parseInt(r, 36) - 9 + '" style="list-style-type:' + (u ? "low" : "upp") + 'er-alpha">') + c + "</ol>" : i("ul", c)) }) }(r), a(/<\/(ol|ul)>\n\n<\1>/g, ""), a(/\n((```|~~~).*\n?([^]*?)\n?\2|((    .*?\n)+))/g, function (n, t, r, e, u) { return s[--m] = i("pre", i("code", e || u.replace(/^    /gm, ""))), m + "" }), r = r.replace(n, function (n, t, r) { return s[--m] = "<code>" + r.replace(/[<>&]/g, function (n) { return "&" + { "<": "lt", ">": "gt", "&": "amp" }[n] + ";" }) + "</code>", m + "" }), a(/((!?)\[(.*?)\]\((.*?)( ".*")?\)|\\([\\`*_{}\[\]()#+\-.!~]))/g, function (n, t, r, e, u, c, l) { return s[--m] = u ? r ? '<img src="' + u + '" alt="' + e + '"/>' : '<a href="' + u + '">' + p(f(e)) + "</a>" : l, m + "" }), a(/\n(( *\|.*?\| *\n)+)/g, function (n, t) { var u = t.match(l)[1]; return "\n" + i("table", t.replace(o, function (n, e) { return n == u ? "" : i("tr", n.replace(g, function (n, t, r) { return r ? i(u && !e ? "th" : "td", p(f(t || ""))) : "" })) })) }), a(/(?=^|>|\n)([>\s]*?)(#{1,6}) (.*?)( #*)? *(?=\n|$)/g, function (n, t, r, e) { return t + i("h" + r.length, p(f(e))) }), a(/(?=^|>|\n)\s*\n+([^<]+?)\n+\s*(?=\n|<|$)/g, function (n, t) { return i("p", p(f(t))) }), a(/-\d+\uf8ff/g, function (n) { return s[parseInt(n)] }), r.trim() }</script>
-    <script>let m="empty";document.getElementById("send-button").addEventListener("click",()=>{const c=document.getElementById("user-input").value.trim();if(!c)return;const d=document.getElementById("messages");const e=document.createElement("div");e.className="text-right";e.innerHTML=`
+    <script>let m = "empty"; document.getElementById("send-button").addEventListener("click", () => {
+            const c = document.getElementById("user-input").value.trim(); if (!c) return; const d = document.getElementById("messages"); const e = document.createElement("div"); e.className = "text-right"; e.innerHTML = `
         <div class="inline-block bg-blue-100 text-blue-800 p-3 rounded-lg">
             <div class="prose max-w-none">${markdown(c)}</div>
         </div>
-    `;d.appendChild(e);d.scrollTop=d.scrollHeight;document.getElementById("user-input").value="";const p=document.createElement("div");p.className="text-left";p.innerHTML=`
+    `; d.appendChild(e); d.scrollTop = d.scrollHeight; document.getElementById("user-input").value = ""; const p = document.createElement("div"); p.className = "text-left"; p.innerHTML = `
         <div class="inline-block bg-gray-100 text-gray-800 p-3 rounded-lg">
             <div id="ai-response" class="prose max-w-none">
                 <span id="typing-indicator">...</span>
             </div>
         </div>
-    `;d.appendChild(p);d.scrollTop=d.scrollHeight;const t=p.querySelector("#typing-indicator");let n=0;const u=setInterval(()=>{n=(n+1)%4;t.textContent=".".repeat(n)},400);async function s(){try{const n=await fetch("https://taubman.pianothshaveck.workers.dev/api",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:c,context:m})});if(!n.ok){if(n.status===429){p.querySelector("#ai-response").innerHTML=`<span class="text-red-500">Too many requests. Try again tomorrow.</span>`}else{const o=await n.json();p.querySelector("#ai-response").innerHTML=`<span class="text-red-500">${o.error}</span>`}return}const s=n.body.getReader();const r=new TextDecoder;let e="";let t=false;while(!t){const{value:a,done:i}=await s.read();t=i;if(a){const l=r.decode(a,{stream:true});e+=l;p.querySelector("#ai-response").innerHTML=markdown(e);d.scrollTop=d.scrollHeight}}if(m==="empty"){m=`${c}\n${e}`}else{m+=`\n---\n${c}\n${e}`}}catch(e){p.querySelector("#ai-response").innerHTML=`<span class="text-red-500">An error occurred.</span>`;console.error(e)}finally{clearInterval(u);t.remove()}}s()});document.getElementById("user-input").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();document.getElementById("send-button").click()}});</script>
+    `; d.appendChild(p); d.scrollTop = d.scrollHeight; const t = p.querySelector("#typing-indicator"); let n = 0; const u = setInterval(() => { n = (n + 1) % 4; t.textContent = ".".repeat(n) }, 400); async function s() { try { const n = await fetch("https://taubman.pianothshaveck.workers.dev/api", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message: c, context: m }) }); if (!n.ok) { if (n.status === 429) { p.querySelector("#ai-response").innerHTML = `<span class="text-red-500">Too many requests. Try again tomorrow.</span>` } else { const o = await n.json(); p.querySelector("#ai-response").innerHTML = `<span class="text-red-500">${o.error}</span>` } return } const s = n.body.getReader(); const r = new TextDecoder; let e = ""; let t = false; while (!t) { const { value: a, done: i } = await s.read(); t = i; if (a) { const l = r.decode(a, { stream: true }); e += l; p.querySelector("#ai-response").innerHTML = markdown(e); d.scrollTop = d.scrollHeight } } if (m === "empty") { m = `${c}\n${e}` } else { m += `\n---\n${c}\n${e}` } } catch (e) { p.querySelector("#ai-response").innerHTML = `<span class="text-red-500">An error occurred.</span>`; console.error(e) } finally { clearInterval(u); t.remove() } } s()
+        }); document.getElementById("user-input").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); document.getElementById("send-button").click() } });</script>
 </body>
 
 </html>
