@@ -4,3 +4,6 @@ node_modules
 input.css
 .DS_Store
 favicon.svg
+index_nonminified.html
+script.js
+minify.sh

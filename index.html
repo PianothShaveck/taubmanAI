@@ -36,9 +36,7 @@
     <div class="flex-grow container mx-auto px-4 py-8">
         <h1 class="text-4xl font-bold text-center mb-8 text-blue-600">Taubman Approach AI Expert</h1>
         <div id="chat-container" class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
-            <div id="messages" class="space-y-4">
-                <!-- Messages will appear here -->
-            </div>
+            <div id="messages" class="space-y-4"></div>
             <div class="mt-6">
                 <textarea id="user-input" rows="3"
                     class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -50,7 +48,7 @@
     </div>
     <div class="bg-gray-100 py-4">
         <div class="container mx-auto text-center">
-            <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'K3K642BQS');kofiwidget2.draw();</script> kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'K3K642BQS');kofiwidget2.draw();</script> 
+            <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'K3K642BQS');kofiwidget2.draw();</script>
             <div class="mt-2">
                 <a href="tos.html" class="text-gray-600 hover:text-blue-500 mx-2">Terms of Service</a>
                 <a href="pp.html" class="text-gray-600 hover:text-blue-500 mx-2">Privacy Policy</a>
@@ -58,114 +56,17 @@
         </div>
     </div>
     <script>function markdown(r) { var t = /\\([\\\|`*_{}\[\]()#+\-~])/g, e = /\n *&gt; *([^]*?)(?=(\n|$){2})/g, u = /\n( *)(?:[*\-+]|((\d+)|([a-z])|[A-Z])[.)]) +([^]*?)(?=(\n|$){2})/g, c = /(^|[^A-Za-z\d\\])(([*_])|(~)|(\^)|(--)|(\+\+)|`)(\2?)([^<]*?)\2\8(?!\2)(?=\W|_|$)/g, n = /(`+)([^`].*?)\1/g, l = /^.*\n( *\|( *\:?-+\:?-+\:? *\|)* *\n|)/, o = /.*\n/g, g = /\||(.*?[^\\])\|/g; function a(n, t) { r = r.replace(n, t) } function i(n, t) { return "<" + n + ">" + t + "</" + n + ">" } function f(n) { return n.replace(c, function (n, t, r, e, u, c, l, o, g, a) { return t + i(e ? g ? "strong" : "em" : u ? g ? "s" : "sub" : c ? "sup" : l ? "small" : o ? "big" : "code", f(a)) }) } function p(n) { return n.replace(t, "$1") } var s = [], m = 0; return r = "\n" + r + "\n", a(/</g, "&lt;"), a(/>/g, "&gt;"), a(/\t|\r|\uf8ff/g, "  "), r = function r(n) { return n.replace(e, function (n, t) { return i("blockquote", r(f(t.replace(/^ *&gt; */gm, "")))) }) }(r), a(/^([*\-=_] *){3,}$/gm, "<hr/>"), r = function l(n) { return n.replace(u, function (n, t, r, e, u, c) { return c = i("li", f(c.split(RegExp("\n ?" + t + "(?:(?:\\d+|[a-zA-Z])[.)]|[*\\-+]) +", "g")).map(l).join("</li><li>"))), "\n" + (r ? '<ol start="' + (e ? r + '">' : parseInt(r, 36) - 9 + '" style="list-style-type:' + (u ? "low" : "upp") + 'er-alpha">') + c + "</ol>" : i("ul", c)) }) }(r), a(/<\/(ol|ul)>\n\n<\1>/g, ""), a(/\n((```|~~~).*\n?([^]*?)\n?\2|((    .*?\n)+))/g, function (n, t, r, e, u) { return s[--m] = i("pre", i("code", e || u.replace(/^    /gm, ""))), m + "" }), r = r.replace(n, function (n, t, r) { return s[--m] = "<code>" + r.replace(/[<>&]/g, function (n) { return "&" + { "<": "lt", ">": "gt", "&": "amp" }[n] + ";" }) + "</code>", m + "" }), a(/((!?)\[(.*?)\]\((.*?)( ".*")?\)|\\([\\`*_{}\[\]()#+\-.!~]))/g, function (n, t, r, e, u, c, l) { return s[--m] = u ? r ? '<img src="' + u + '" alt="' + e + '"/>' : '<a href="' + u + '">' + p(f(e)) + "</a>" : l, m + "" }), a(/\n(( *\|.*?\| *\n)+)/g, function (n, t) { var u = t.match(l)[1]; return "\n" + i("table", t.replace(o, function (n, e) { return n == u ? "" : i("tr", n.replace(g, function (n, t, r) { return r ? i(u && !e ? "th" : "td", p(f(t || ""))) : "" })) })) }), a(/(?=^|>|\n)([>\s]*?)(#{1,6}) (.*?)( #*)? *(?=\n|$)/g, function (n, t, r, e) { return t + i("h" + r.length, p(f(e))) }), a(/(?=^|>|\n)\s*\n+([^<]+?)\n+\s*(?=\n|<|$)/g, function (n, t) { return i("p", p(f(t))) }), a(/-\d+\uf8ff/g, function (n) { return s[parseInt(n)] }), r.trim() }</script>
-    <script>
-        let context = "empty";
-        document.getElementById('send-button').addEventListener('click', () => {
-            const userInput = document.getElementById('user-input').value.trim();
-            if (!userInput) return;
-
-            // Display the user's message
-            const messagesDiv = document.getElementById('messages');
-            const userMessageDiv = document.createElement('div');
-            userMessageDiv.className = 'text-right';
-            userMessageDiv.innerHTML = `
-                    <div class="inline-block bg-blue-100 text-blue-800 p-3 rounded-lg">
-                        <div class="prose max-w-none">${markdown(userInput)}</div>
-                    </div>
-                `;
-            messagesDiv.appendChild(userMessageDiv);
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-            // Clear the input
-            document.getElementById('user-input').value = '';
-
-            // Display the AI's response placeholder
-            const aiMessageDiv = document.createElement('div');
-            aiMessageDiv.className = 'text-left';
-            aiMessageDiv.innerHTML = `
-                    <div class="inline-block bg-gray-100 text-gray-800 p-3 rounded-lg">
-                        <div id="ai-response" class="prose max-w-none">
-                            <span id="typing-indicator">...</span>
-                        </div>
-                    </div>
-                `;
-            messagesDiv.appendChild(aiMessageDiv);
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-            // Animations while waiting for response
-            const typingIndicator = aiMessageDiv.querySelector('#typing-indicator');
-            let dots = 0;
-            const typingInterval = setInterval(() => {
-                dots = (dots + 1) % 4;
-                typingIndicator.textContent = '.'.repeat(dots);
-            }, 400);
-
-            // Send the request to the Cloudflare Worker
-            async function makeRequest() {
-                try {
-                    const response = await fetch('https://taubman.pianothshaveck.workers.dev/api', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            message: userInput,
-                            context: context
-                        })
-                    });
-
-                    if (!response.ok) {
-                        if (response.status === 429) {
-                            aiMessageDiv.querySelector('#ai-response').innerHTML = `<span class="text-red-500">Too many requests. Try again tomorrow.</span>`;
-                        } else {
-                            const errorData = await response.json();
-                            aiMessageDiv.querySelector('#ai-response').innerHTML = `<span class="text-red-500">${errorData.error}</span>`;
-                        }
-                        return;
-                    }
-
-                    const reader = response.body.getReader();
-                    const decoder = new TextDecoder();
-                    let aiContent = '';
-                    let done = false;
-
-                    while (!done) {
-                        const { value, done: readerDone } = await reader.read();
-                        done = readerDone;
-                        if (value) {
-                            const chunk = decoder.decode(value, { stream: true });
-                            aiContent += chunk;
-                            // Update the AI message content
-                            aiMessageDiv.querySelector('#ai-response').innerHTML = markdown(aiContent);
-                            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-                        }
-                    }
-
-                    // Update the context
-                    if (context === "empty") {
-                        context = `${userInput}\n${aiContent}`;
-                    } else {
-                        context += `\n---\n${userInput}\n${aiContent}`;
-                    }
-                } catch (error) {
-                    aiMessageDiv.querySelector('#ai-response').innerHTML = `<span class="text-red-500">An error occurred.</span>`;
-                    console.error(error);
-                } finally {
-                    clearInterval(typingInterval);
-                    typingIndicator.remove();
-                }
-            }
-            makeRequest();
-        });
-
-        // Handle pressing Enter to send the message
-        document.getElementById('user-input').addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                document.getElementById('send-button').click();
-            }
-        });
-    </script>
+    <script>let m="empty";document.getElementById("send-button").addEventListener("click",()=>{const c=document.getElementById("user-input").value.trim();if(!c)return;const d=document.getElementById("messages");const e=document.createElement("div");e.className="text-right";e.innerHTML=`
+        <div class="inline-block bg-blue-100 text-blue-800 p-3 rounded-lg">
+            <div class="prose max-w-none">${markdown(c)}</div>
+        </div>
+    `;d.appendChild(e);d.scrollTop=d.scrollHeight;document.getElementById("user-input").value="";const p=document.createElement("div");p.className="text-left";p.innerHTML=`
+        <div class="inline-block bg-gray-100 text-gray-800 p-3 rounded-lg">
+            <div id="ai-response" class="prose max-w-none">
+                <span id="typing-indicator">...</span>
+            </div>
+        </div>
+    `;d.appendChild(p);d.scrollTop=d.scrollHeight;const t=p.querySelector("#typing-indicator");let n=0;const u=setInterval(()=>{n=(n+1)%4;t.textContent=".".repeat(n)},400);async function s(){try{const n=await fetch("https://taubman.pianothshaveck.workers.dev/api",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:c,context:m})});if(!n.ok){if(n.status===429){p.querySelector("#ai-response").innerHTML=`<span class="text-red-500">Too many requests. Try again tomorrow.</span>`}else{const o=await n.json();p.querySelector("#ai-response").innerHTML=`<span class="text-red-500">${o.error}</span>`}return}const s=n.body.getReader();const r=new TextDecoder;let e="";let t=false;while(!t){const{value:a,done:i}=await s.read();t=i;if(a){const l=r.decode(a,{stream:true});e+=l;p.querySelector("#ai-response").innerHTML=markdown(e);d.scrollTop=d.scrollHeight}}if(m==="empty"){m=`${c}\n${e}`}else{m+=`\n---\n${c}\n${e}`}}catch(e){p.querySelector("#ai-response").innerHTML=`<span class="text-red-500">An error occurred.</span>`;console.error(e)}finally{clearInterval(u);t.remove()}}s()});document.getElementById("user-input").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();document.getElementById("send-button").click()}});</script>
 </body>
 
 </html>
